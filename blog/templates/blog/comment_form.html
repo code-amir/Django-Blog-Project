@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="ui main text container" >
+    <div class="ui top  attached segment">
+    <h1>New comment</h1>
+    <form method="POST" class="ui form">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="ui violet basic button">Post Comment</button>
+    </form>
+    </div>
+</div>
+    <script>var editor = new MediumEditor('.editable');</script>
+
+{% endblock %}

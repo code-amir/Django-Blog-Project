@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="ui main text container" >
+    <div class="ui top  attached segment">
+  <form action="" method="post">{% csrf_token %}
+    <p>Are you sure you want to delete "{{ object }}"?</p>
+    <input class='ui red basic button' type="submit" value="Confirm" />
+  </form>
+  </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+<div class="ui main text container">
+      <div class="ui top  attached segment">
+    <!--  {% if registered %}
+        <h1>Thank you for registering!</h1>
+      {% else %}
+    -->
+        <h1>Signup</h1>
+        <h3>Please fill out the form.</h3>
+        <form enctype="multipart/form-data" class="ui form" method="POST">
+          {% csrf_token %}
+          <!--{{ user_form.as_p }}
+          {{ profile_form.as_p }}-->
+            {% bootstrap_form user_form %}
+            {% bootstrap_form profile_form %}
+            <div class="btn" class="align-center">
+              <input type="submit" class="ui basic button" name="" value="Submit">
+          </div>
+        </form>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

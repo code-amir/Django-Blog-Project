@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+<div class="ui main text container">
+      <div class="ui top  attached segment">
+    	<div class="row">
+        <div class="form-bg">
+          <form method="post" class="ui form" action="{% url 'blog:user_login' %}">
+            <h2>Login Page</h2>
+            <br/>
+            		{% csrf_token %}
+            		{# A more "HTML" way of creating the login form#}
+                <div class="form-group">
+            		    <label for="username">Username:</label>
+            		      <input type="text" name="username" placeholder="Username" id="uname">
+                </div>
+                <div class="form-group">
+                  <label for="password">Password:</label>
+            		    <input type="password" name="password" placeholder="Password">
+                </div>
+                <br/>
+                <div class="align-center">
+                <input type="submit" class="ui basic button" name="" value="Login">
+                </div>
+    			</form>
+
+        </div>
+        </div>
+		</div>
+  </div>
+{% endblock %}

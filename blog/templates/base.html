@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Blog Project</title>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        {# Custom CSS#}
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+
+        {# Fonts#}
+        <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet">
+        <body>
+        <div class="ui fixed inverted menu">
+                <div class="ui container">
+
+                    <a href="{% url 'blog:post_list' %}" class="header item"><i class="code icon"></i>Blog Site</a>
+                    <a href="{% url 'blog:about'%}"class="item">About</a>
+                    <a href="https://www.github.com" class="item">Github</a>
+                    <a href="https://www.linkedin.com" class="item">LinkedIn</a>
+                    {% if user.is_authenticated %}
+
+                      <a href="{% url 'blog:post_new' %}" class="item" >New Post</a>
+                      <a href="{% url 'blog:post_draft_list' %}" class="item">Drafts</a>
+                      <div class="right menu">
+                      <a href="{% url 'blog:logout' %}" class="item" >Log out</a>
+                      <a class="item">Welcome: {{ user.username }}</a>
+                    </div>
+                      {% else %}
+                      <div class="right menu">
+                      <a href="{% url 'blog:user_login' %}" class="item" ><span>Login</span></a></li>
+                      <a href="{% url 'blog:register' %}" class="item"><span> Signup</span></a></li>
+                    </div>
+                    {% endif %}
+
+                </div>
+            </div>
+
+
+
+                        {% block content %}
+                        {% endblock %}
+
+
+
+            {# SCRIPTS#}
+
+            <script type="text/javascript" src="{% static 'js/blog.js' %}"></script>
+
+            </body>
+            </html>
